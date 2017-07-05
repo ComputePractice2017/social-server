@@ -62,3 +62,11 @@ func EditPerson(p Person) error {
 	}
 	return nil
 }
+
+func DeletePerson(id string) error {
+	_, err := r.DB("social").Table("social").Get(id).Delete().Run(session)
+	if err != nil {
+		return err
+	}
+	return nil
+}
